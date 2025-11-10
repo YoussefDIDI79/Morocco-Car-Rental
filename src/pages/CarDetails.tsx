@@ -49,14 +49,19 @@ const CarDetails = () => {
 
   if (!car) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Car not found</h1>
-          <Button onClick={() => navigate('/')}>
-            <ArrowLeft className="mr-2 w-4 h-4" />
-            Back to Home
-          </Button>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">Car not found</h1>
+            <p className="text-muted-foreground mb-6">The car you're looking for doesn't exist.</p>
+            <Button onClick={() => navigate('/')}>
+              <ArrowLeft className="mr-2 w-4 h-4" />
+              Back to Home
+            </Button>
+          </div>
         </div>
+        <Footer />
       </div>
     );
   }
