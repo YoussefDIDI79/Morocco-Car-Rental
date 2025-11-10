@@ -8,7 +8,7 @@ const FloatingWhatsApp = () => {
   const { t } = useLanguage();
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/212600000000?text=Hello! I would like to inquire about car rental.', '_blank');
+    window.open('https://wa.me/212762267007?text=Hello! I would like to inquire about car rental.', '_blank');
     setIsOpen(false);
   };
 

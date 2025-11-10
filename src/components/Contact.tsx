@@ -7,7 +7,7 @@ const Contact = () => {
   const { t } = useLanguage();
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/212600000000', '_blank');
+    window.open('https://wa.me/212762267007', '_blank');
   };
 
   return (
@@ -30,7 +30,7 @@ const Contact = () => {
                 className="text-primary hover:text-primary/80"
                 onClick={openWhatsApp}
               >
-                +212 600 000 000
+                +212 762 267 007
               </Button>
             </CardContent>
           </Card>
@@ -41,8 +41,8 @@ const Contact = () => {
                 <Phone className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-semibold mb-2">{t('contact.phone')}</h3>
-              <a href="tel:+212600000000" className="text-muted-foreground hover:text-secondary transition-colors">
-                +212 600 000 000
+              <a href="tel:+212762267007" className="text-muted-foreground hover:text-secondary transition-colors">
+                +212 762 267 007
               </a>
             </CardContent>
           </Card>
@@ -53,8 +53,8 @@ const Contact = () => {
                 <Mail className="w-6 h-6 text-accent" />
               </div>
               <h3 className="font-semibold mb-2">{t('contact.email')}</h3>
-              <a href="mailto:info@moroccocarrental.com" className="text-muted-foreground hover:text-accent transition-colors">
-                info@moroccocarrental.com
+              <a href="mailto:youssefdidi792@gmail.com" className="text-muted-foreground hover:text-accent transition-colors">
+                youssefdidi792@gmail.com
               </a>
             </CardContent>
           </Card>
@@ -66,7 +66,7 @@ const Contact = () => {
               </div>
               <h3 className="font-semibold mb-2">{t('contact.location')}</h3>
               <p className="text-muted-foreground text-sm">
-                Casablanca, Morocco
+                Khenifra, Morocco
               </p>
             </CardContent>
           </Card>
@@ -75,7 +75,7 @@ const Contact = () => {
         {/* Map */}
         <div className="rounded-xl overflow-hidden shadow-elevated scroll-reveal">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423286.8821237824!2d-7.853138449999999!3d33.5731104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C%20Morocco!5e0!3m2!1sen!2s!4v1234567890123"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106483.77!2d-5.6631!3d32.9347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda1d772f32d140b%3A0x7253cf1d404c7ca3!2sKhenifra%2C%20Morocco!5e0!3m2!1sen!2s!4v1234567890123"
             width="100%"
             height="400"
             style={{ border: 0 }}

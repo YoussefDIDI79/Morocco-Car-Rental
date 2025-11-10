@@ -59,7 +59,7 @@ const BookingForm = ({ carName, carPrice }: BookingFormProps) => {
 
     // Create WhatsApp message
     const message = `Booking Request:\n\nCar: ${carName || 'N/A'}\nPrice: ${carPrice || 'N/A'} MAD/day\nName: ${formData.fullName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nPickup City: ${formData.pickupCity}\nPickup Date: ${formData.pickupDate}\nReturn Date: ${formData.returnDate}`;
-    const whatsappUrl = `https://wa.me/212600000000?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/212762267007?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
     toast.success(t('booking.success'));
@@ -106,7 +106,7 @@ const BookingForm = ({ carName, carPrice }: BookingFormProps) => {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+212 600 000 000"
+            placeholder="+212 762 267 007"
             required
           />
         </div>

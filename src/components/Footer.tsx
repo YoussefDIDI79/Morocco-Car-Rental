@@ -46,23 +46,23 @@ const Footer = () => {
             
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
-              <a href="tel:+212600000000" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group">
+              <a href="tel:+212762267007" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group">
                 <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Phone className="w-5 h-5" />
                 </div>
-                <span>+212 600 000 000</span>
+                <span>+212 762 267 007</span>
               </a>
-              <a href="mailto:info@moroccocarrental.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group">
+              <a href="mailto:youssefdidi792@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group">
                 <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
-                <span>info@moroccocarrental.com</span>
+                <span>youssefdidi792@gmail.com</span>
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <span>Casablanca, Morocco</span>
+                <span>Khenifra, Morocco</span>
               </div>
             </div>
 
