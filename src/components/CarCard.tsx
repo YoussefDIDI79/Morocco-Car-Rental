@@ -73,21 +73,17 @@ const CarCard = ({ car }: CarCardProps) => {
       <CardFooter className="p-6 pt-0 flex gap-3">
         <Button
           variant="outline"
-          className="flex-1 group-hover:border-primary group-hover:text-primary"
+          className="flex-1 group-hover:border-primary group-hover:text-primary transition-all"
           onClick={() => navigate(`/car/${car.id}`)}
         >
           {t('cars.viewDetails')}
         </Button>
         <Button
-          className="flex-1 bg-gradient-primary text-white shadow-primary btn-shine hover:shadow-elevated"
+          className="flex-1 bg-gradient-primary text-white shadow-primary btn-shine hover:shadow-elevated transition-all"
           onClick={() => {
-            navigate(`/car/${car.id}`);
-            setTimeout(() => {
-              const bookingForm = document.getElementById('booking-form');
-              if (bookingForm) {
-                bookingForm.scrollIntoView({ behavior: 'smooth' });
-              }
-            }, 100);
+            const carName = language === 'ar' ? car.nameAr : car.name;
+            const message = `Hello! I'm interested in renting the ${carName} (${car.price} MAD/day). Can you provide more information?`;
+            window.open(`https://wa.me/212762267007?text=${encodeURIComponent(message)}`, '_blank');
           }}
         >
           {t('cars.rentNow')}

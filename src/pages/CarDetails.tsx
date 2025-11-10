@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Fuel, Cog, Users, Check } from 'lucide-react';
+import { ArrowLeft, Fuel, Cog, Users, Check, Phone, MessageCircle, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cars } from '@/data/cars';
@@ -15,12 +16,36 @@ const CarDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { language, t } = useLanguage();
+  const { toast } = useToast();
   
   const car = cars.find((c) => c.id === Number(id));
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleShare = async () => {
+    const carName = language === 'ar' ? car?.nameAr : car?.name;
+    const shareData = {
+      title: `${carName} - Morocco Car Rental`,
+      text: `Check out this car: ${carName} for ${car?.price} MAD/day`,
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        toast({
+          title: "Link Copied!",
+          description: "Car link copied to clipboard",
+        });
+      }
+    } catch (err) {
+      console.log('Error sharing:', err);
+    }
+  };
 
   if (!car) {
     return (
@@ -47,15 +72,25 @@ const CarDetails = () => {
       
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
-          {/* Back Button */}
-          <Button
-            variant="ghost"
-            onClick={() => navigate('/')}
-            className="mb-6"
-          >
-            <ArrowLeft className="mr-2 w-4 h-4" />
-            {t('details.backToCars')}
-          </Button>
+          {/* Back Button & Share */}
+          <div className="flex items-center justify-between mb-6">
+            <Button
+              variant="ghost"
+              onClick={() => navigate('/')}
+            >
+              <ArrowLeft className="mr-2 w-4 h-4" />
+              {t('details.backToCars')}
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleShare}
+              className="gap-2"
+            >
+              <Share2 className="w-4 h-4" />
+              Share
+            </Button>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Car Image & Info */}
@@ -98,7 +133,7 @@ const CarDetails = () => {
                     <p className="text-muted-foreground">{description}</p>
                   </div>
 
-                  <div>
+                  <div className="mb-6">
                     <h2 className="text-xl font-semibold mb-3">{t('details.features')}</h2>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       {features.map((feature, index) => (
@@ -108,6 +143,28 @@ const CarDetails = () => {
                         </li>
                       ))}
                     </ul>
+                  </div>
+
+                  {/* Quick Contact Buttons */}
+                  <div className="grid grid-cols-2 gap-3 pt-4 border-t">
+                    <Button
+                      className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white"
+                      onClick={() => {
+                        const message = `Hello! I'm interested in renting the ${carName} (${car.price} MAD/day). Can you provide more information?`;
+                        window.open(`https://wa.me/212762267007?text=${encodeURIComponent(message)}`, '_blank');
+                      }}
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      WhatsApp
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full hover:bg-primary hover:text-white"
+                      onClick={() => window.open('tel:+212762267007', '_self')}
+                    >
+                      <Phone className="w-4 h-4 mr-2" />
+                      Call Now
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
